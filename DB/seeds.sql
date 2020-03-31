@@ -1,3 +1,5 @@
+USE burger_db;
+
 INSERT INTO burger
     (burger_name)
 VALUES

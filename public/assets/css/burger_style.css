@@ -1,0 +1,100 @@
+body {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 34px;
+    color: white;
+    background-color: orange;
+  }
+  
+  ul {
+    background: #27c48f;
+    list-style-type: decimal;
+  }
+  
+  input[type="radio"] {
+    -webkit-appearance: none;
+    list-style-type: none;
+  }
+  
+  h1.title {
+    height: 150px;
+    line-height: 125px;
+    color: orange;
+    background: black;
+    border-bottom: 3px solid white;
+    text-align: center;
+    padding: 10px;
+    margin: 0px 0px 0px;
+    font-size: 50px;
+    padding-right: 150px;
+  }
+  
+  h2 {
+    padding-bottom: 10px;
+    font-size: 25px;
+    text-align: center;
+    line-height: 50px;
+    margin: 0px;
+    color: orange;
+    background: black;
+    border-bottom: 3px solid #ccc;
+  }
+  
+  li {
+    padding: 5px;
+    background: #faebd7;
+  }
+  
+  ul {
+    background: #faebd7;
+  }
+  
+  label {
+    padding: 10px;
+    font-size: 30px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  }
+  
+  .form-group {
+    margin-bottom: 5px;
+    margin-left: 30%;
+    margin-right: 30%;
+  }
+  
+  button[type=submit] {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  
+  button[type=submit] {
+    padding: 10px 30px;
+    font: 30px "Fira Sans", serif;
+    font-family: 'Luckiest Guy', cursive;
+    color: #fff;
+    cursor: pointer;
+    background: black;
+    border: 0 none;
+  }
+  
+  center {
+    padding: 15px;
+  }
+  
+  button {
+    width: 100%;
+    text-align: center;
+    color: orange;
+    font: 30px "Fira Sans", serif;
+    font-family: 'Luckiest Guy', cursive;
+    padding: 10px 5px 0px;
+  }
+  
+  span.iggy, p {
+    float: left;
+    margin: 0px 15px 0px;
+    text-align: center;
+    color: black;
+    font: 30px "Fira Sans", serif;
+    font-family: 'Luckiest Guy', cursive;
+  }
