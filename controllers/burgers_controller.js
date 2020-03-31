@@ -1,41 +1,51 @@
-var express = require('express');
-var burger_router = express.Router();
-var burger_call = require('../models/burger.js');
-var bodyParser = require('body-parser');
+var express = require("express");
+var router = express.Router();
+var burger = require("../models/burger.js");
 
-burger_router.use(bodyParser.json());
-burger_router.use(bodyParser.urlencoded({extended: false}));
-burger_router.use(bodyParser.text());
-burger_router.use(bodyParser.json({type:'application/vnd.api+json'}));
-
-burger_router.get('/', function(req,res){
-  res.redirect('/burger');
-});
-
-burger_router.get('/burger', function(req,res){
-  burger_call.read(function(data){
-    var hbs_object = {burger: data};
-    res.render('index', hbs_object);
+router.get("/", function(req, res) {
+  burger.all(function(data) {
+    var hbsObject = {
+      burgers: data
+    };
+    console.log(hbsObject);
+    res.render("index", hbsObject);
   });
 });
 
-burger_router.post('/burger/add', function(req, res){
-  burger_call.insert(req.body.user_burger, function(data){
-    res.redirect('/burger');
+router.post("/api/burger", function(req, res) {
+  burger.create([
+    "burger_name", "devoured"
+  ], [
+    req.body.burger_name, req.body.devoured
+  ], function(result) {
+    res.json({ id: result.insertId });
   });
 });
 
-burger_router.put('/burger/update/:id?', function(req,res){
-  var user_id = parseInt(req.params.id);
-  burger_call.update(user_id, function(data){
-    res.redirect('/burger');
+router.put("/api/burger/:id", function(req, res) {
+  var condition = "id = " + req.params.id;
+  console.log("condition", condition);
+  burger.update({
+    devoured: req.body.devoured
+  }, condition, function(result) {
+    if (result.changedRows == 0) {
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
+    }
+  });
+});
+router.delete("/api/burger/:id", function(req, res) {
+  var condition = "id = " + req.params.id;
+
+  burger.delete(condition, function(result) {
+    if (result.affectedRows == 0) {
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
+    }
   });
 });
 
-burger_router.put('/burger/delete/:id?', function(req,res){
-  var user_id = parseInt(req.params.id);
-  burger_call.delete(user_id, function(data){
-    res.redirect('/burger');
-  });
-});
-module.exports = burger_router;
+
+module.exports = router;
