@@ -1,6 +1,10 @@
-var express = require("express");
-var router = express.Router();
+
 var burger = require("../models/burger.js");
+
+var express = require("express");
+
+var router = express.Router();
+
 
 router.get("/", function(req, res) {
   burger.all(function(data) {
@@ -12,7 +16,7 @@ router.get("/", function(req, res) {
   });
 });
 
-router.post("/api/burger", function(req, res) {
+router.post("/api/burgers", function(req, res) {
   burger.create([
     "burger_name", "devoured"
   ], [
@@ -22,7 +26,7 @@ router.post("/api/burger", function(req, res) {
   });
 });
 
-router.put("/api/burger/:id", function(req, res) {
+router.put("/api/burgers/:id", function(req, res) {
   var condition = "id = " + req.params.id;
   console.log("condition", condition);
   burger.update({
@@ -35,7 +39,7 @@ router.put("/api/burger/:id", function(req, res) {
     }
   });
 });
-router.delete("/api/burger/:id", function(req, res) {
+router.delete("/api/burgers/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
   burger.delete(condition, function(result) {
