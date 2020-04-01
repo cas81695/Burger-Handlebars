@@ -1,26 +1,29 @@
-var orm = require('../config/orm.js');
+var orm = require("../config/orm.js");
 
-var burger_call = {
-  insert: function(some_val, cb){
-    orm.insert('burger_tbl', 'burger_name', some_val, function(res){
-      cb(res);
+var burger = {
+  all: function(br) {
+    orm.all('burgers', function(res) {
+      br(res);
     });
   },
-  read: function(cb){
-    orm.read('burger_tbl', function(res){
-      cb(res);
+  
+  create: function(cols, vals, br) {
+    orm.create('burgers', cols, vals, function(res) {
+      br(res);
     });
   },
-  update: function(user_id, cb){
-    orm.update('burger_tbl', 'devoured', 1 , 'id', user_id, function(res){
-      cb(res);
-    });
-  },
-  delete: function(user_id, cb){
-    orm.delete('burger_tbl', 'id', user_id, function(res){
-      cb(res);
-    });
-  }
-}
 
-module.exports = burger_call;
+  update: function(objColVals, condition, br) {
+    orm.update('burgers', objColVals, condition, function(res) {
+      br(res);
+    });
+  },
+  
+  delete: function(condition, br) {
+    orm.delete('burgers', condition, function(res) {
+      br(res);
+    });
+  },
+};
+
+module.exports = burger;
