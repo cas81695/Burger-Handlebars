@@ -1,55 +1,62 @@
-<center>
-<img src="public/assets/img/isometric-burger-ingredients.jpg" alt="" style="max-width: 500px" />
-<a href="http://fontmeme.com/burger-king-font/"><img src="http://fontmeme.com/embed.php?text=Eat-Da-Burger%21&name=Insanibc.ttf&size=100&style_color=000000" alt="Burger King Font"></a>
-</center>
-<br>
-<br>
-<div class="col-md-4">
-  <center>
-  <a href="http://fontmeme.com/burger-king-font/"><img src="http://fontmeme.com/embed.php?text=Add%20a%20Burger%21&name=Insanibc.ttf&size=20&style_color=000000" alt="Burger King Font"></a>
-  </center>
-
-
-  <form class="col-md-12" action="/burger/add" method="POST">
-    <div class="col-md-11 col-md-offset-1 text-center" style="margin-top:15px">
-        <label for="burger" style="color: grey; font-family: 'Comic Sans MS', cursive, sans-serif">Order Your Burger!</label>
-        <input type="text" id="burger" name="user_burger" required>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="title">Burger Hero
+        <span class="hero">
+          <br><p>Burger</p>
+          <br><p>Hero</p>
+        </span>
+      </h1>
     </div>
-  </form>
-</div>
 
-<div class="col-md-4">
-  
-  <center>
-  <a href="http://fontmeme.com/burger-king-font/"><img src="http://fontmeme.com/embed.php?text=Your%20a%20Burgers%21&name=Insanibc.ttf&size=20&style_color=000000" alt="Burger King Font"></a>
-  </center>
+    <div class="col-md-12">
+      <div class="burgerImage">
+        <center>
+          <img src="/public/assets/img/isometric-burger-ingredients.jpg" alt="Burger">
+        </center>
+      </div>
+    </div>
 
-  <div class="col-md-12 text-center">
-      {{#each burger}}
-        {{#unless this.devoured}}
-          <form class="col-md-12" action="/burger/update/{{this.id}}?_method=PUT" method="POST">
-          <div class="burger_name" style="font-size: 14pt; padding: 10px; color: black; font-family: 'Comic Sans MS', cursive, sans-serif" id="burger1">{{this.burger_name}}
-          </div>
-          <button class="btn btn-warning btn-xs" type="submit"><img src="https://media.giphy.com/media/ToMjGplHPoYqSg7oACc/giphy.gif" alt="" style="max-width: 50px" /></button>
-          </form>
-        {{/unless}}
-      {{/each}}
+    <div class="col-md-6">
+      <h2>Burgers Menu!</h2>
+      <ul>
+        {{#each burgers}} {{#unless devoured}} {{> burgers/burger-block devoured=true}} {{/unless}} {{/each}}
+      </ul>
+    </div>
+
+
+
+    <div class="col-md-6">
+      <h2>Sorry...These Burgers Have Been Devoured!</h2>
+      <ul>
+        {{#each burgers}} {{#if devoured}} {{> burgers/burger-block devoured=false}} {{/if}} {{/each}}
+      </ul>
+    </div>
+
+    <div class="col-md-12">
+
+      <h2>Make Your Own Burger</h2>
+      <form class="create-form">
+
+        <div class="form-group">
+          <label for="br">Burger Name:</label>
+          <input type="text" id="br" name="burger_name">
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="center-block btn btn-default"> Add Burger<input type="radio" name="devoured" value="0" checked>
+            <li>
+	            <button class="change-devoured" data-id="{{id}}" data-newdevoured="{{devoured}}">
+		            {{#if devoured}}{{burger_name}}{{else}}{{burger_name}}{{/if}}
+	            </button>
+            </li>
+          
+
+        </div>
+
+
+      </form>
+    </div>
   </div>
 </div>
-
-<div class="col-md-4">
-  <center>
-  <a href="http://fontmeme.com/burger-king-font/"><img src="http://fontmeme.com/embed.php?text=You%20Devoured%21&name=Insanibc.ttf&size=20&style_color=000000" alt="Burger King Font"></a>
-  </center>
-  <div class="col-md-12 text-center">
-    {{#each burger}}
-      {{#if this.devoured}}
-          <form class="col-md-12" action="/burger/delete/{{this.id}}?_method=PUT" method="POST">
-          <div class="burger_name" style="font-size: 14pt; padding: 10px; color: black; font-family: 'Comic Sans MS', cursive, sans-serif">{{this.burger_name}}
-          </div>
-            <button class="btn btn-warning btn-xs" type="submit"><img src="https://media.giphy.com/media/ToMjGplHPoYqSg7oACc/giphy.gif" alt="" style="max-width: 50px" /></button>
-          </form>
-      {{/if}}
-    {{/each}}
-  </div>
 </div>
