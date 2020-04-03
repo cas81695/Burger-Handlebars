@@ -23,7 +23,8 @@ The app is deployed on Heroku with the link: https://cas81695-burger-hero.heroku
 
 *[Contribution](#contribution)
 
-<img src = /assets/images/Burger_Hero.jpg>
+![Burger_Hero](https://user-images.githubusercontent.com/58318559/78322218-1c35d900-753c-11ea-90cb-5a5ae51cec11.jpg)
+
 
 ## Installation
 
