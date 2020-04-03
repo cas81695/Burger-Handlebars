@@ -6,6 +6,7 @@ $(function() {
 		var newDevouredState = {
 			devoured: newDevoured
 		};
+
 		$.ajax("/api/burgers/" + id, {
 			type: "PUT",
 			data: newDevouredState
@@ -24,16 +25,19 @@ $(function() {
 			burger_name: $("#br").val().trim(),
 			devoured: $("[name=devoured]:checked").val()
 		};
+
 		$.ajax("/api/burgers", {
 			type: "POST",
 			data: newBurger
 		}).then(
 			function() {
 				console.log("created new burger");
+				// Reload the page to get the updated list
 				location.reload();
 			}
 		);
 	});
+
 
 	$(".delete-burger").on("click", function(event) {
 		var id = $(this).data("id");
