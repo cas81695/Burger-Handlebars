@@ -7,7 +7,6 @@
  This is an application that allows use to log your burgers with MySQL, Node, Express, Handlebars and a homemade ORM. The app design pattern follows a MVC structure; using Node and MySQL to query and route data in the app, and Handlebars to generate the HTML.
 
 The app is deployed on Heroku with the link: https://cas81695-burger-hero.herokuapp.com/
- 
 
 ## Table of Content
 
@@ -25,7 +24,6 @@ The app is deployed on Heroku with the link: https://cas81695-burger-hero.heroku
 
 ![Burger_Hero](https://user-images.githubusercontent.com/58318559/78322218-1c35d900-753c-11ea-90cb-5a5ae51cec11.jpg)
 
-
 ## Installation
 
 To install all of the dependencies that are needed, run the following command:
@@ -33,8 +31,6 @@ To install all of the dependencies that are needed, run the following command:
 npm i
 
 ## Usage
-
-
 
 ## Collaborators and/or Third Party Assets
 
@@ -45,8 +41,6 @@ express
 express-handlebars
 
 handlebars-helper-css
-
-
 
 ## License
 
@@ -60,13 +54,7 @@ npm test
 
 ## Contribution
 
-
-
 ----------------------------------------------
-
-
-
-
 
 -----------------------------------------------
 

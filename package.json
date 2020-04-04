@@ -20,7 +20,7 @@
   "homepage": "https://github.com/cas81695/Burger-Handlebars#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "express-handlebars": "^4.0.1",
+    "express-handlebars": "^4.0.2",
     "mysql": "^2.18.1"
   },
   "devDependencies": {
