@@ -40,8 +40,6 @@ express
 
 express-handlebars
 
-handlebars-helper-css
-
 ## License
 
 MIT
