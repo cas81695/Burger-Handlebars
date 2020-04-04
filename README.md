@@ -6,7 +6,7 @@
 
  This is an application that allows use to log your burgers with MySQL, Node, Express, Handlebars and a homemade ORM. The app design pattern follows a MVC structure; using Node and MySQL to query and route data in the app, and Handlebars to generate the HTML.
 
-The app is deployed on Heroku with the link: https://cas81695-burger-hero.herokuapp.com/
+The app is deployed on Heroku with the link: https://immense-basin-17135.herokuapp.com/
 
 ## Table of Content
 
